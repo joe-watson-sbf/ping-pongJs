@@ -1,0 +1,17 @@
+main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2%;
+    text-align: center;
+    color: #364f6b;
+    #canvas{
+        margin-left: 20%;
+        margin-right: 20%;
+        border: solid;
+        border-radius: 14px;
+        border-color: #364f6b;
+        box-shadow: 2px 1px 8px 2px rgb(22, 22, 22);
+        background-color: #fc5185;
+    }
+}

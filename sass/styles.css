@@ -1,0 +1,27 @@
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 2%;
+  text-align: center;
+  color: #364f6b;
+}
+
+main #canvas {
+  margin-left: 20%;
+  margin-right: 20%;
+  border: solid;
+  border-radius: 14px;
+  border-color: #364f6b;
+  -webkit-box-shadow: 2px 1px 8px 2px #161616;
+          box-shadow: 2px 1px 8px 2px #161616;
+  background-color: #fc5185;
+}
+/*# sourceMappingURL=styles.css.map */
