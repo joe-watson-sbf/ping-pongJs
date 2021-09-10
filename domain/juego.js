@@ -130,9 +130,6 @@ class BoardView {
         }
     }
 
-    replay(){
-        if(this.board.ball.isMatchEnd()) this.board.playing=false;
-    }
 
     /**
      * Un metodo privado para dibujar los objetos 
@@ -188,6 +185,7 @@ class Ball{
      */
     move(){
         this.#reboundBoderTopBottom();
+        this.#isMatchEnd();
         this.x += (this.speed_x * this.direction);
         this.y += (this.speed_y);
     }
@@ -199,6 +197,19 @@ class Ball{
     #reboundBoderTopBottom(){
         if (this.y <= 10 || this.y >= 390) {
             this.speed_y = this.speed_y * - 1;
+        }
+    }
+
+    /**
+     * Controla cuando pasa la pelota detras de las barras
+     * para reiniciar el juego
+     */
+     #isMatchEnd(){
+        if (this.x >= 790 || this.x <= 10){
+            alert("The match is end!");
+            this.x = 400;
+            this.y = 189;
+            location.reload();
         }
     }
 
@@ -219,13 +230,5 @@ class Ball{
         this.speed+=0.1;
     }
 
-    /**
-     * Controla cuando pasa la pelota detras de las barras
-     * para reiniciar el juego
-     */
-    isMatchEnd(){
-        if (this.x >= 790 || this.x <= 10){
-            return true;
-        }
-    }
+    
 }

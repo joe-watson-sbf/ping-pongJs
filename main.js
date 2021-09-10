@@ -9,11 +9,11 @@ let ball = new Ball(400, 189, 20, board);
 
 // Control key press
 document.addEventListener('keydown', (event)=>{
-    if(event.key==='ArrowDown') bar1.down();
-    if(event.key==='ArrowUp') bar1.up();
+    if(event.key==='ArrowDown') bar2.down();
+    if(event.key==='ArrowUp') bar2.up();
 
-    if(event.key==='s') bar2.down();
-    if(event.key==='w') bar2.up();
+    if(event.key==='s') bar1.down();
+    if(event.key==='w') bar1.up();
     if(event.key===' ') board.playing = !board.playing;
     
     event.preventDefault();
@@ -27,7 +27,6 @@ board_view.draw();
 function controller(){
     board_view.play();
     window.requestAnimationFrame(controller);
-    board_view.replay();
 }
 
 
