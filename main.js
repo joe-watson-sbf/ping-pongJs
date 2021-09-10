@@ -1,40 +1,57 @@
+let board = new Board(800, 400);
+let bar1 = new Bar(20, 130, 20, 100, board)
+let bar2 = new Bar(760, 130, 20, 100, board)
+let canvas = document.getElementById('canvas');
+let board_view = new BoardView(canvas, board);
+let ball = new Ball(400, 189, 20, board);
 
 
-(function() {
-    self.Board = function(width, height){
-        this.width = width;
-        this.height = height;
-        this.play = false;
-        this.game_over=false;
-        this.bars=[];
-        this.ball=null;
-    }
 
-    self.Board.prototype = {
-        get elements(){
-            let elements = this.bars;
-            elements.push(ball);
-            return elements;
-        }
-    }
+// Control key press
+document.addEventListener('keydown', (event)=>{
+    if(event.key==='ArrowDown') bar1.down();
+    if(event.key==='ArrowUp') bar1.up();
+
+    if(event.key==='s') bar2.down();
+    if(event.key==='w') bar2.up();
+    if(event.key===' ') board.playing = !board.playing;
     
-})();
+    event.preventDefault();
+})
 
 
-(function(){
-    self.BoardView = function(canvas, board){
-        this.canvas = canvas;
-        this.canvas.width = board.width;
-        this.canvas.height= board.height;
-        this.board = board;
-        this.contexto = canvas.getContext('2d');
+
+window.requestAnimationFrame(controller);
+
+board_view.draw();
+function controller(){
+    board_view.play();
+    window.requestAnimationFrame(controller);
+    board_view.replay();
+}
+
+
+function ganador(params) {
+    if (this.x >= 790){
+        this.contadorJugador1++;
+        this.x = 350;
+        this.y = 100;
+        this.direction = 1;
+        this.speed_y = 0;
+        this.speed_x = 3;
+        this.speed = 3;
+        this.board.arePlaying = false;
+
+        
+    }else if (this.x <= 10) {
+        this.contadorJugador2++;
+        this.x = 350;
+        this.y = 100;
+        this.direction = -1;
+        this.speed_y = 0;
+        this.speed_x = 3;
+        this.speed = 3;
+        this.board.arePlaying = false;
+
     }
-})();
-
-window.addEventListener('load', main);
-
-function main() {
-    var board = new Board(800, 400);
-    var canvas = document.getElementById('canvas');
-    var board_view = new BoardView(canvas, board);
 }

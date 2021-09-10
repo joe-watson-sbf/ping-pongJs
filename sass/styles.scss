@@ -1,3 +1,4 @@
+
 main{
     display: flex;
     justify-content: center;
@@ -6,12 +7,11 @@ main{
     text-align: center;
     color: #364f6b;
     #canvas{
-        margin-left: 20%;
-        margin-right: 20%;
         border: solid;
-        border-radius: 14px;
-        border-color: #364f6b;
-        box-shadow: 2px 1px 8px 2px rgb(22, 22, 22);
-        background-color: #fc5185;
+        border-radius: 8px;
+        box-shadow: 1px 1px 18px 1px rgb(0, 0, 0);
+        border-color: #00ff2a;
+        background-color: #01470d;
     }
+    
 }
